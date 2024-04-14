@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FactGrid from "../components/FactGrid.astro";
+import Team from "../components/Team.astro";
+
 import "@fontsource-variable/albert-sans";
 import { Icon } from "astro-icon/components";
 ---
@@ -27,8 +29,8 @@ import { Icon } from "astro-icon/components";
           vient tout juste de sortir du four !
           <br />
           Vaatigames, c'est la solution parfaite entre hébergeur de quialité et prix
-          éxorbitans. Car ici, <i>c'est vous</i> qui choissisez ce qui est
-          important, <i>pour vous, pour vos projets, et pour votre porte feuille</i>.
+          éxorbitans. Car ici, <i>c'est vous</i> qui choissisez ce qui est important,
+          <i>pour vous, pour vos projets, et pour votre porte feuille</i>.
         </p>
         <button class="btn btn-disabled">On arrive bientôt !</button>
       </div>
@@ -50,26 +52,5 @@ import { Icon } from "astro-icon/components";
       },
     ]}
   />
+  <Team />
 </Layout>
-<div class="flex justify-center">
-  <Icon name="ph:file-code-duotone" class="text-3xl justify-center" />
-  <p class="text-lg text-center pb-20">
-    <strong>Info développeurs</strong>
-    <br />
-    Kits utilisés :<br />
-    <a class="text-primary" href="https://daisyui.com" target="_blank"
-      >Daisy UI</a
-    ><br />
-    <a
-      class="text-primary"
-      href="https://icon-sets.iconify.design/ph/"
-      target="_blank">Icones Phosphore (duotone)</a
-    ><br />
-    <a class="text-primary" href="https://tailwindcss.com" target="_blank"
-      >Tailwind CSS</a
-    ><br />
-    <a class="text-primary" href="https://astro.build" target="_blank"
-      >Astro Framework</a
-    ><br />
-  </p>
-</div>
