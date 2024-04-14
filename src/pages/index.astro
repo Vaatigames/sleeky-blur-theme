@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import FactGrid from "../components/FactGrid.astro";
 import Team from "../components/Team.astro";
+import Testimonie from "../components/Testimonie.astro";
 
 import "@fontsource-variable/albert-sans";
 import { Icon } from "astro-icon/components";
@@ -37,20 +38,30 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
   <FactGrid
-    title="Les avantages de vaatigames, c'est..."
-    body="[ICI DU TEXTE]"
+    title="Vaatigames c'est quoi ?"
+    body="Nous essayons d'être un hébergeur flexible, sans économiser sur les fonctionalités ou les performances grâce à nos trois catégories de serveurs.."
     items={[
       {
-        title: "test",
-        description: "test",
+        title: "Multi-Usage",
+        description:
+          "Vaatigames vous propose trois catégories de serveurs, avec des composant plus ou moin récent, et donc plus ou moin performant. Vous êtes donc libre de choisir le serveur qui vous convient le mieux.",
+        icon: "ph:checkerboard-duotone",
+      },
+      {
+        title: "Économique",
+        description:
+          "Comme nous vous proposont des prix différents celon les nodes, vous avez le controle sur votre budget et sur votre serveur.",
         icon: "ph:money-wavy-duotone",
       },
       {
-        title: "Scalable",
-        description: "test",
+        title: "Évolutif",
+        description: "Grâce à notre système de catégorie hardware, vous pouvez à tout moment changer d'offre et passer à des composant plus performant ou moin couttant.",
         icon: "ph:arrow-fat-lines-up-duotone",
       },
     ]}
+  />
+  <Testimonie 
+  body="Nous n'avons pas d'avis pour le moment. Soyez le premier à nous noter !"
   />
   <Team />
 </Layout>
