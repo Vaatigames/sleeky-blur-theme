@@ -1,0 +1,40 @@
+---
+const {
+  title = "Designed for business teams like yours",
+  body = "Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.",
+  items,
+} = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-base-300 m-12 rounded-lg">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <div class="max-w-screen-md mb-8 lg:mb-16">
+      <h2
+        class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+        {title}
+      </h2>
+      <p class="text-gray-500 sm:text-xl dark:text-gray-400">
+        {body}
+      </p>
+    </div>
+    <div
+      class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+      {
+        items.map((item) => (
+          <div>
+            <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 lg:h-12 lg:w-12 ">
+              <Icon
+                name={item.icon}
+                class="w-5 h-5 text-base-100 lg:w-6 lg:h-6"
+                fill="currentColor"
+              />
+            </div>
+            <h3 class="mb-2 text-xl font-bold">{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

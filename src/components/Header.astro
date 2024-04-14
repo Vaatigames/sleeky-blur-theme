@@ -3,7 +3,7 @@ import "@fontsource-variable/albert-sans";
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="navbar fixed top-0 border-b backdrop-blur border-base-300">
+<div class="navbar fixed top-0 border-b backdrop-blur border-base-300 z-30">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -71,6 +71,9 @@ import { Icon } from "astro-icon/components";
         >
       </button>
     </div>
-    <a class="btn btn-ghost" href="https://client.vaatigames.ovh">Mon Compte</a>
+    <a
+      class="btn border-0 bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 dark:from-purple-600 dark:via-purple-700 dark:to-purple-800"
+      href="https://client.vaatigames.ovh">Mon Compte</a
+    >
   </div>
 </div>

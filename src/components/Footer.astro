@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="footer p-10 bg-base-300 text-base-content">
+  <nav>
+    <h6 class="footer-title flex">
+      <Icon name="ph:info-duotone" class="h-5 w-5 mr-2" />
+      Services
+    </h6>
+    <a class="link link-hover flex"
+      ><Icon name="ph:map-pin-duotone" /> Adresse</a
+    >
+    <a class="link link-hover flex"
+      ><Icon name="ph:envelope-open-duotone" /> mail</a
+    >
+    <a class="link link-hover flex"
+      ><Icon name="ph:dots-three-circle-duotone" /> etc</a
+    >
+  </nav>
+  <nav>
+    <h6 class="footer-title flex">
+      <Icon name="ph:seal-question-duotone" class="h-5 w-5 mr-2" />
+      Jsp
+    </h6>
+  </nav>
+  <nav>
+    <h6 class="footer-title flex">
+      <Icon name="ph:scales-duotone" class="h-5 w-5 mr-2" />
+      Légal
+    </h6>
+    <a class="link link-hover">Terms of use</a>
+    <a class="link link-hover">Privacy policy</a>
+    <a class="link link-hover">Cookie policy</a>
+  </nav>
+</footer>
+<footer
+  class="footer px-10 py-4 border-t bg-base-300 text-base-content"
+  style="border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)))">
+  <aside class="items-center grid-flow-col">
+    <Icon name="ph:disc-duotone" class="h-6 w-6" />
+    <p><strong>Vaatigames</strong><br />© 2023-2024. Tout droit réservé.</p>
+  </aside>
+  <nav class="md:place-self-center md:justify-self-end">
+    <div class="grid grid-flow-col gap-4">
+      <a><Icon name="ph:cloud-warning-duotone" class="h-6 w-6" /></a>
+      <a><Icon name="ph:book-open-user-duotone" class="h-6 w-6" /></a>
+      <a><Icon name="ph:discord-logo-duotone" class="h-6 w-6" /></a>
+    </div>
+  </nav>
+</footer>

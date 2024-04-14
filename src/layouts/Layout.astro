@@ -1,9 +1,8 @@
 ---
-interface Props {
-  title: string;
-}
-
 const { title } = Astro.props;
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="fr">
@@ -28,7 +27,9 @@ const { title } = Astro.props;
     </script>
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-base-200">
+    <Header />
     <slot />
   </body>
+  <Footer />
 </html>
