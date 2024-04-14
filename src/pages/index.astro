@@ -1,10 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Header from '../components/Header.astro';
-import '@fontsource-variable/albert-sans';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import "@fontsource-variable/albert-sans";
+import { Icon } from "astro-icon/components";
 ---
 
-<Header />
-<div class="min-h-screen bg-[url(https://play.tailwindcss.com/img/beams.jpg)]">
-</div>
+<Layout title="Vaatigames">
+  <Header />
+  <div
+    class="hero min-h-screen bg-base-200 lg:pl-10">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="w-1/3 flex justify-end">
+        <img
+          src="/ai/server1.svg"
+          class="max-w-sm rounded-lg "
+        />
+      </div>
+      <div class="w-2/3">
+        <h1 class="text-3xl lg:text-5xl font-bold">
+          La qualité et l'efficacité
+          <br />
+          <span
+            class="inline-flex bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-transparent bg-clip-text">
+            <Icon name="ph:star-four-duotone" class="mr-1 text-purple-500" />
+            en même temps
+            <Icon name="ph:star-four-duotone" class="ml-1 text-purple-700" />
+          </span>
+        </h1>
+        <p class="py-6">
+          Découvrez Vaatigames, un hébergeur de serveurs de jeux en ligne qui
+          vient juste de sortir du four !
+          <br />
+          Vaatigames, c'est la solution parfaite entre hébergeur de quialité et prix
+          éxorbitans. Car ici, c'est <i>c'est vous</i> qui choissisez
+        </p>
+        <button class="btn btn-disabled">On arrive bientôt !</button>
+      </div>
+    </div>
+  </div>
+</Layout>
