@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: ['class', '[data-theme="dark"]'],
+	darkMode: ['class', '[data-theme="dracula"]'],
 	theme: {
 		extend: {
 			fontFamily: {
@@ -45,4 +45,7 @@ export default {
 	plugins: [
 		require("daisyui")
 	],
+	daisyui: {
+    	themes: ["light", "dark", "dracula"],
+  	},
 }

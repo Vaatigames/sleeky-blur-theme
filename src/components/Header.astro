@@ -23,30 +23,32 @@ import { Icon } from "astro-icon/components";
       <ul
         tabindex="0"
         class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow backdrop-blur border-b border-base-300 rounded-box w-52">
-        <li><a>Item 1</a></li>
+        <li><a href="/">Item 1</a></li>
         <li>
           <a>Parent</a>
           <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+            <li><a href="/">Submenu 1</a></li>
+            <li><a href="/">Submenu 2</a></li>
           </ul>
         </li>
-        <li><a>Item 3</a></li>
+        <li><a href="/">Item 3</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">Vaatigames</a>
+    <a class="btn btn-ghost text-xl" href="/">Vaatigames</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a><Icon name="ph:game-controller-duotone" /> Jeux</a></li>
-      <li><a><Icon name="ph:codesandbox-logo-duotone" /> Ptérobox</a></li>
-      <li><a><Icon name="ph:database-duotone" /> Développeur</a></li>
+      <li><a href="/"><Icon name="ph:game-controller-duotone" /> Jeux</a></li>
+      <li>
+        <a href="/"><Icon name="ph:codesandbox-logo-duotone" /> Ptérobox</a>
+      </li>
+      <li><a href="/"><Icon name="ph:database-duotone" /> Développeur</a></li>
     </ul>
   </div>
   <div class="navbar-end">
-    <div class="inline-block relative mr-2">
+    <div class="inline-block relative mr-2 w-10">
       <button
-        data-toggle-theme="dark,light"
+        data-toggle-theme="dracula,light"
         class="relative flex items-center justify-center w-10 h-10 btn-ghost rounded">
         <!-- First SVG icon (bottom layer) -->
         <svg
@@ -69,7 +71,6 @@ import { Icon } from "astro-icon/components";
         >
       </button>
     </div>
+    <a class="btn btn-ghost" href="https://client.vaatigames.ovh">Mon Compte</a>
   </div>
-
-  <a class="btn" href="https://client.vaatigames.ovh">Mon Compte</a>
 </div>
