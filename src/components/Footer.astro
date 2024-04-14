@@ -12,7 +12,7 @@ import { Icon } from "astro-icon/components";
       ><Icon name="ph:map-pin-duotone" class="mr-1" /> Adresse</a
     >
     <a class="link link-hover flex items-center"
-      ><Icon name="ph:envelope-open-duotone" class="mr-1" /> mail</a
+      ><Icon name="ph:envelope-open-duotone" class="mr-1" /> Mail</a
     >
     <a class="link link-hover flex items-center"
       ><Icon name="ph:dots-three-circle-duotone" class="mr-1" /> etc</a
@@ -29,9 +29,9 @@ import { Icon } from "astro-icon/components";
       <Icon name="ph:scales-duotone" class="h-5 w-5 mr-2" />
       Légal
     </h6>
-    <a class="link link-hover">Terms of use</a>
-    <a class="link link-hover">Privacy policy</a>
-    <a class="link link-hover">Cookie policy</a>
+    <a class="link link-hover" href="/cgv">CGV</a>
+    <a class="link link-hover" href="/cgu">CGU</a>
+    <a class="link link-hover" href="/privacy">Politique de Confidentialité</a>
   </nav>
 </footer>
 <footer
@@ -43,9 +43,15 @@ import { Icon } from "astro-icon/components";
   </aside>
   <nav class="md:place-self-center md:justify-self-end">
     <div class="grid grid-flow-col gap-4">
-      <a><Icon name="ph:cloud-warning-duotone" class="h-6 w-6" /></a>
-      <a><Icon name="ph:book-open-user-duotone" class="h-6 w-6" /></a>
-      <a><Icon name="ph:discord-logo-duotone" class="h-6 w-6" /></a>
+      <a href="https://statut.vaatigames.ovh" target="_blank"
+        ><Icon name="ph:cloud-warning-duotone" class="h-6 w-6" /></a
+      >
+      <a href="/" target="_blank"
+        ><Icon name="ph:book-open-user-duotone" class="h-6 w-6" /></a
+      >
+      <a href="https://discord.gg/x9YRMQeHtN" target="_blank">
+        <Icon name="ph:discord-logo-duotone" class="h-6 w-6" />
+      </a>
     </div>
   </nav>
 </footer>
