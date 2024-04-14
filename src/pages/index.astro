@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Vaatigames">
-  <div class="hero min-h-screen bg-base-200">
+  <div class="hero min-h-screen transition-all duration-300">
     <div class="hero-content flex-col lg:flex-row-reverse w-screen">
       <div class="w-full lg:w-1/3 flex lg:justify-end">
         <img src="/ai/server1.svg" class="max-w-sm rounded-lg" alt="Server" />
@@ -55,13 +55,14 @@ import { Icon } from "astro-icon/components";
       },
       {
         title: "Évolutif",
-        description: "Grâce à notre système de catégorie hardware, vous pouvez à tout moment changer d'offre et passer à des composant plus performant ou moin couttant.",
+        description:
+          "Grâce à notre système de catégorie hardware, vous pouvez à tout moment changer d'offre et passer à des composant plus performant ou moin couttant.",
         icon: "ph:arrow-fat-lines-up-duotone",
       },
     ]}
   />
-  <Testimonie 
-  body="Nous n'avons pas d'avis pour le moment. Soyez le premier à nous noter !"
+  <Testimonie
+    body="Nous n'avons pas d'avis pour le moment. Soyez le premier à nous noter !"
   />
   <Team />
 </Layout>

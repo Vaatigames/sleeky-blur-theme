@@ -53,7 +53,7 @@ import { Icon } from "astro-icon/components";
         class="relative flex items-center justify-center w-10 h-10 btn-ghost rounded">
         <!-- First SVG icon (bottom layer) -->
         <svg
-          class="hidden dark:block absolute fill-current w-6 h-6"
+          class="opacity-0 dark:opacity-100 absolute fill-current w-6 h-6 transition-all duration-500"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           ><path
@@ -63,7 +63,7 @@ import { Icon } from "astro-icon/components";
 
         <!-- Second SVG icon (top layer) -->
         <svg
-          class="absolute dark:hidden block fill-current w-6 h-6"
+          class="absolute dark:opacity-0 opacity-100 fill-current w-6 h-6 transition-all duration-500"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           ><path

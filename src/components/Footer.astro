@@ -2,7 +2,8 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<footer class="footer p-10 bg-base-300 text-base-content">
+<footer
+  class="footer p-10 bg-base-300 text-base-content transition-all duration-300">
   <nav>
     <h6 class="footer-title flex">
       <Icon name="ph:info-duotone" class="h-5 w-5 mr-2" />
@@ -35,7 +36,7 @@ import { Icon } from "astro-icon/components";
   </nav>
 </footer>
 <footer
-  class="footer px-10 py-4 border-t bg-base-300 text-base-content"
+  class="footer px-10 py-4 border-t bg-base-300 text-base-content transition-all duration-300"
   style="border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)))">
   <aside class="items-center grid-flow-col">
     <Icon name="ph:disc-duotone" class="h-6 w-6" />
@@ -52,7 +53,10 @@ import { Icon } from "astro-icon/components";
       <a href="/" target="_blank" aria-label="Voir le site"
         ><Icon name="ph:book-open-user-duotone" class="h-6 w-6" /></a
       >
-      <a href="https://discord.gg/x9YRMQeHtN" target="_blank" aria-label="Discord">
+      <a
+        href="https://discord.gg/x9YRMQeHtN"
+        target="_blank"
+        aria-label="Discord">
         <Icon name="ph:discord-logo-duotone" class="h-6 w-6" />
       </a>
     </div>

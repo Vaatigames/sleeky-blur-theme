@@ -6,6 +6,7 @@ const {
   avatar = "https://github.com/herobrine.png",
 } = Astro.props;
 
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -22,7 +23,13 @@ import { Icon } from "astro-icon/components";
         </p>
       </blockquote>
       <figcaption class="flex items-center justify-center mt-6 space-x-3">
-        <img class="w-6 h-6 rounded-full" src={avatar} alt="profile picture" />
+        <Image
+          class="rounded-full"
+          src={avatar}
+          alt="profile avatar"
+          width="24"
+          height="24"
+        />
         <div
           class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
           <div class="pr-3 font-medium">
