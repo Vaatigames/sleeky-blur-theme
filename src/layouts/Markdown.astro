@@ -28,7 +28,9 @@ import Footer from "../components/Footer.astro";
   </head>
   <body class="bg-base-200 transition-all duration-300">
     <Header />
-    <slot />
+    <article class="prose lg:prose-md min-h-screen mx-auto pt-28 pb-10">
+      <slot />
+    </article>
   </body>
   <Footer />
 </html>

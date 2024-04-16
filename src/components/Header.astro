@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/albert-sans";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 ---
 
 <div
@@ -49,15 +50,43 @@ import { Icon } from "astro-icon/components";
         </li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl" href="/">Vaatigames</a>
+    <a class="ml-2 text-xl" href="/">
+      <Image
+        class="h-9 hover:h-10 w-auto transition-all duration-300"
+        src="/img/vaati1.png"
+        alt="Vaatigame's Logo"
+        width="144"
+        height="36"
+      />
+    </a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><a href="/"><Icon name="ph:game-controller-duotone" /> Jeux</a></li>
+    <ul tabindex="0" class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary><Icon name="ph:game-controller-duotone" /> Jeux</summary>
+          <ul class="p-2">
+            <li><a>Minecraft</a></li>
+            <li><a>GMod</a></li>
+            <li><a>FiveM</a></li>
+            <li><a>Autres</a></li>
+          </ul>
+        </details>
+      </li>
       <li>
         <a href="/"><Icon name="ph:codesandbox-logo-duotone" /> Ptérobox</a>
       </li>
-      <li><a href="/"><Icon name="ph:database-duotone" /> Développeur</a></li>
+      <li>
+        <details>
+          <summary><Icon name="ph:database-duotone" /> Développeur</summary>
+          <ul class="p-2">
+            <li><a></a></li>
+            <li><a>Base de données</a></li>
+            <li><a>Serveur Web Dynamique</a></li>
+            <li><a>Codespace</a></li>
+          </ul>
+        </details>
+      </li>
     </ul>
   </div>
   <div class="navbar-end">
