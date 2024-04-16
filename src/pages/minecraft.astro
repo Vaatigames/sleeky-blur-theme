@@ -1,13 +1,145 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FactGrid from "../components/FactGrid.astro";
-import Team from "../components/Team.astro";
-import Testimonie from "../components/Testimonie.astro";
+import Card from "../components/Card.astro";
 
 import "@fontsource-variable/albert-sans";
 import { Icon } from "astro-icon/components";
 ---
 
-<Layout title="Offres Minecraft" >
+<Layout title="Offres Minecraft">
+  <div class="pt-32 mb-4">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center justify-center"
+      id="default-tab"
+      data-tabs-toggle="#default-tab-content"
+      data-tabs-active-classes="bg-purple-500"
+      role="tablist">
+      <li role="presentation">
+        <button
+          class="inline-block py-4 px-8 bg-gray-200 dark:bg-gray-900 rounded-l-full"
+          id="profile-tab"
+          data-tabs-target="#profile"
+          type="button"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false">Gen3</button
+        >
+      </li>
+      <li role="presentation">
+        <button
+          class="inline-block py-4 px-8 bg-gray-200 dark:bg-gray-900"
+          id="dashboard-tab"
+          data-tabs-target="#dashboard"
+          type="button"
+          role="tab"
+          aria-controls="dashboard"
+          aria-selected="true">Gen4</button
+        >
+      </li>
+      <li role="presentation">
+        <button
+          class="inline-block py-4 px-8 bg-gray-200 dark:bg-gray-900 rounded-r-full"
+          id="settings-tab"
+          data-tabs-target="#settings"
+          type="button"
+          role="tab"
+          aria-controls="settings"
+          aria-selected="false">Gen5</button
+        >
+      </li>
+    </ul>
+  </div>
+  <div id="default-tab-content" class="m-4 lg:m-8">
+    <div
+      class="hidden p-4 rounded-lg bg-base-300"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab">
+      <div class="grid grid-cols-1 lg:grid-cols-3 items-center">
+        <Card
+          title="Offre 1"
+          body="1vcore<br>4ramddr3<br>10Go stockage ssd"
+          price="4,40 € / mois"
+          href="https://client.vaatigames.ovh/store/1/checkout"
+          image="/icon/grass.png"
+        />
+        <Card
+          title="Offre 2"
+          body="2vcore<br>8ramddr3<br>20Go stockage ssd"
+          price="8,80 € / mois"
+          href="https://client.vaatigames.ovh/store/2/checkout"
+          image="/icon/iron.png"
+        />
+        <Card
+          title="Offre 3"
+          body="4vcore<br>16ramddr3<br>40Go stockage ssd"
+          price="17,60 € / mois"
+          href="https://client.vaatigames.ovh/store/3/checkout"
+          image="/icon/command_block.png"
+        />
+      </div>
+    </div>
+    <div
+      class="hidden p-4 rounded-lg bg-base-300"
+      id="dashboard"
+      role="tabpanel"
+      aria-labelledby="dashboard-tab">
+      <div class="grid grid-cols-1 lg:grid-cols-3 items-center">
+        <Card
+          title="Offre 1"
+          body="1vcore<br>4ramddr3<br>10Go stockage ssd"
+          price="5,65 € / mois"
+          href="https://client.vaatigames.ovh/store/4/checkout"
+          image="/icon/grass.png"
+        />
+        <Card
+          title="Offre 2"
+          body="2vcore<br>8ramddr3<br>20Go stockage ssd"
+          price="11,30 € / mois"
+          href="https://client.vaatigames.ovh/store/5/checkout"
+          image="/icon/iron.png"
+        />
+        <Card
+          title="Offre 3"
+          body="4vcore<br>16ramddr3<br>40Go stockage ssd"
+          price="22,60 € / mois"
+          href="https://client.vaatigames.ovh/store/6/checkout"
+          image="/icon/command_block.png"
+        />
+      </div>
+    </div>
+    <div
+      class="hidden p-4 rounded-lg bg-base-300"
+      id="settings"
+      role="tabpanel"
+      aria-labelledby="settings-tab">
+      <div class="grid grid-cols-1 lg:grid-cols-3 items-center">
+        <Card
+          title="Offre 1"
+          body="1vcore<br>4ramddr3<br>10Go stockage ssd"
+          price="4,40 € / mois"
+          href="https://client.vaatigames.ovh/store/7/checkout"
+          image="/icon/grass.png"
+        />
+        <Card
+          title="Offre 2"
+          body="2vcore<br>8ramddr3<br>20Go stockage ssd"
+          price="8,80 € / mois"
+          href="https://client.vaatigames.ovh/store/8/checkout"
+          image="/icon/iron.png"
+        />
+        <Card
+          title="Offre 3"
+          body="4vcore<br>16ramddr3<br>40Go stockage ssd"
+          price="17,60 € / mois"
+          href="https://client.vaatigames.ovh/store/9/checkout"
+          image="/icon/command_block.png"
+        />
+      </div>
+    </div>
+  </div>
 
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
+  ></script>
 </Layout>
