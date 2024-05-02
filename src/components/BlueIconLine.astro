@@ -1,0 +1,20 @@
+---
+const { icon = "ph:envelope-open-duotone", arg = "Superbes mails" } =
+  Astro.props;
+
+import { Icon } from "astro-icon/components";
+---
+
+<div class="flex items-center">
+  <div
+    class="flex items-center justify-center h-12 w-12 rounded-md bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600">
+    <Icon
+      name={icon}
+      class="w-5 h-5 text-base-100 lg:w-6 lg:h-6"
+      fill="currentColor"
+    />
+  </div>
+  <div class="ml-4">
+    <p class="text-base font-medium">{arg}</p>
+  </div>
+</div>

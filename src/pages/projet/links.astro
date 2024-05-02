@@ -1,23 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import IconLine from "../../components/IconLine.astro";
+import IconLine from "../../components/BlueIconLine.astro";
 
 import "@fontsource-variable/albert-sans";
 import { Icon } from "astro-icon/components";
 ---
 
-<Layout title="Vaaticket" favicon="/img/vaaticket.png">
+<Layout title="DCLinks" favicon="/img/dclinks.png">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
     <div class="px-5 py-6 sm:px-6 sm:py-8">
       <img
-        src="/banner/1.png"
+        src="/banner/3.png"
         alt="banner"
         class="mx-auto w-full max-w-2xl rounded-lg shadow-md"
       />
       <div class="mt-6 text-center space-y-6">
-        <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl inline-flex">
-          <Icon name="ph:ticket-duotone" class="-rotate-45 mr-2" />
-          Vaaticket
+        <h2
+          class="text-3xl font-extrabold tracking-tight sm:text-4xl inline-flex">
+          <Icon name="ph:link-break-bold" class="w-10 h-10"/>
+          DCLinks
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 space-y-4 pb-10">
           <IconLine icon="ph:sticker-duotone" arg="Gestion des tickets" />
@@ -30,7 +31,7 @@ import { Icon } from "astro-icon/components";
         <a
           href="https://tickets.vaatigames.ovh"
           target="_blank"
-          class="rounded-lg bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 px-12 py-4 text-center shadow-md inline-flex">
+          class="rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-12 py-4 text-center shadow-md inline-flex">
           Panel Web
         </a>
         <a
