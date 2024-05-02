@@ -4,7 +4,7 @@ const { href, title, body, image, price } = Astro.props;
 
 <div class="card w-80 lg:w-96 bg-base-100 shadow-xl">
   <figure class="px-10 pt-10">
-    <img src={image} alt={title} class="rounded-xl" />
+    <img src={image} alt={title} class="h-32 w-32 rounded-xl" />
   </figure>
   <div class="card-body items-center text-center">
     <h2 class="card-title">{title}</h2>
