@@ -2,6 +2,7 @@
 const { title, favicon = "/img/vaati2.png" } = Astro.props;
 
 import Header from "../components/Header.astro";
+import Nav from "../components/DrawerNav.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -26,9 +27,18 @@ import Footer from "../components/Footer.astro";
     </script>
     <title>{title}</title>
   </head>
+
   <body class="bg-base-200 transition-all duration-300">
-    <Header />
-    <slot />
+    <div class="drawer">
+      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col">
+        <Header />
+        <slot />
+        <Footer />
+      </div>
+      <div class="drawer-side">
+        <Nav />
+      </div>
+    </div>
   </body>
-  <Footer />
 </html>
