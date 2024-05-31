@@ -4,6 +4,7 @@ const { title, favicon = "/img/vaati2.png" } = Astro.props;
 import Header from "../components/Header.astro";
 import Nav from "../components/DrawerNav.astro";
 import Footer from "../components/Footer.astro";
+import Alert from "../components/Alert.astro";
 ---
 
 <html lang="fr">
@@ -33,6 +34,12 @@ import Footer from "../components/Footer.astro";
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
         <Header />
+        <Alert
+          title="Vaatigames n'est pas encore prêt !"
+          body="Si ça t'interesse déjà, rend toi sur notre discord pour en parler avec nous :)"
+          href="https://discord.gg/uawBFkmYq5"
+          button="Discord"
+        />
         <slot />
         <Footer />
       </div>
