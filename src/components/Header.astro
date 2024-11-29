@@ -396,9 +396,17 @@ import { Image } from "astro:assets";
         >
       </button>
     </div>
-    <a
-      class="btn border-0 bg-gradient-to-r from-primary-light via-primary-medium to-primary-dark"
-      href="https://client.vaatigames.ovh">Mon Compte</a
-    >
+    <a class="btn-ghost rounded"><Icon name="ph:basket-duotone" /></a>
+    <div class="dropdown">
+      <div
+        tabindex="0"
+        role="button">
+        <Icon name="ph:heart-duotone" />
+      </div>
+      <ul
+        tabindex="0"
+        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+      </ul>
+    </div>
   </div>
 </div>
