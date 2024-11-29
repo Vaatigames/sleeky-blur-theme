@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 ---
 
 <footer
@@ -7,25 +8,30 @@ import { Icon } from "astro-icon/components";
   <nav>
     <h6 class="footer-title flex">
       <Icon name="ph:info-duotone" class="h-5 w-5 mr-2" />
-      Services
+      A propos de nous
     </h6>
     <a class="link link-hover flex items-center"
-      ><Icon name="ph:map-pin-duotone" class="mr-1" /> Adresse</a
-    >
+      ><Icon name="ph:map-pin-duotone" class="mr-1" /> Somwhere In The World™
+    </a>
     <a class="link link-hover flex items-center"
-      ><Icon name="ph:envelope-open-duotone" class="mr-1" /> Mail</a
-    >
-    <a class="link link-hover flex items-center"
-      ><Icon name="ph:dots-three-circle-duotone" class="mr-1" /> etc</a
+      ><Icon name="ph:envelope-open-duotone" class="mr-1" /> client@vaatigames.ovh</a
     >
   </nav>
   <nav>
     <h6 class="footer-title flex">
       <Icon name="ph:seal-question-duotone" class="h-5 w-5 mr-2" />
-      Retrouvez nous sur:
+      Retrouvez nous sur
     </h6>
-    <a class="link link-hover" href="https://bsky.app/profile/vaatigames.ovh" target="_blank">Bluesky</a>
-    <a class="link link-hover" href="#">Instagram</a>
+    <a
+      class="link link-hover"
+      href="https://bsky.app/profile/vaatigames.ovh"
+      target="_blank">Bluesky</a
+    >
+    <a
+      class="link link-hover"
+      href="https://instagram.com/vaatigames.ovh"
+      target="_blank">Instagram</a
+    >
   </nav>
   <nav>
     <h6 class="footer-title flex">
@@ -41,7 +47,7 @@ import { Icon } from "astro-icon/components";
   class="footer px-10 py-4 border-t bg-base-300 text-base-content transition-all duration-300"
   style="border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)))">
   <aside class="items-center grid-flow-col">
-    <Icon name="ph:disc-duotone" class="h-6 w-6" />
+    <Image src="/img/vaati2.png" alt="Vaatigame's Logo" width="32" height="32" />
     <p><strong>Vaatigames</strong><br />© 2023-2024. Tout droit réservé.</p>
   </aside>
   <nav class="md:place-self-center justify-self-center md:justify-self-end">
@@ -70,4 +76,3 @@ import { Icon } from "astro-icon/components";
     <img src="https://www.top-heberg.com/badge/vaatigames-948?s=refer" width="250" alt="Top-heberg.com" />
   </a>
 </footer-->
-
