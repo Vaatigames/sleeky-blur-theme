@@ -1,20 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 import typography from "@tailwindcss/typography";
 
-
 module.exports = {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./node_modules/flowbite/**/*.js",
   ],
   plugins: [require("daisyui"), typography],
-  
+
   theme: {
     extend: {
       colors: {
-        'primary-light': 'var(--primary-light)',
-		'primary-medium': 'var(--primary-medium)',
-		'primary-dark': 'var(--primary-dark)',
+        "primary-light": "var(--primary-light)",
+        "primary-medium": "var(--primary-medium)",
+        "primary-dark": "var(--primary-dark)",
       },
       fontFamily: {
         body: [
@@ -56,38 +55,38 @@ module.exports = {
   },
 
   darkMode: ["class", '[data-theme="dracula"]'],
-  
+
   daisyui: {
     themes: [
       {
         light: {
           ...require("daisyui/src/theming/themes")["light"],
-          'primary': '#a855f7',
-          '--primary-light': '#c084fc',
-          '--primary-medium': '#a855f7',
-          '--primary-dark': '#9333ea',
+          primary: "#a855f7",
+          "--primary-light": "#c084fc",
+          "--primary-medium": "#a855f7",
+          "--primary-dark": "#9333ea",
         },
-		'blue-light': {
+        "blue-light": {
           ...require("daisyui/src/theming/themes")["light"],
-          'primary': '#0ea5e9',
-          '--primary-light': '#bae6fd',
-          '--primary-medium': '#0ea5e9',
-          '--primary-dark': '#0284c7',
+          primary: "#0ea5e9",
+          "--primary-light": "#bae6fd",
+          "--primary-medium": "#0ea5e9",
+          "--primary-dark": "#0284c7",
         },
-		
+
         dracula: {
           ...require("daisyui/src/theming/themes")["dracula"],
-          'primary': '#7e22ce',
-          '--primary-light': '#9333ea',
-          '--primary-medium': '#7e22ce',
-          '--primary-dark': '#6b21a8',
+          primary: "#7e22ce",
+          "--primary-light": "#9333ea",
+          "--primary-medium": "#7e22ce",
+          "--primary-dark": "#6b21a8",
         },
-		'blue-dracula': {
+        "blue-dracula": {
           ...require("daisyui/src/theming/themes")["dracula"],
-          'primary': '#0369a1',
-          '--primary-light': '#0284c7',
-          '--primary-medium': '#0369a1',
-          '--primary-dark': '#0c4a6e',
+          primary: "#0369a1",
+          "--primary-light": "#0284c7",
+          "--primary-medium": "#0369a1",
+          "--primary-dark": "#0c4a6e",
         },
       },
     ],
