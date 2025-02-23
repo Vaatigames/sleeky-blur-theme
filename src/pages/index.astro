@@ -25,19 +25,17 @@ import { Icon } from "astro-icon/components";
           <span
             class="inline-flex bg-gradient-to-r from-primary-light via-primary-medium to-primary-dark text-transparent bg-clip-text">
             <Icon name="ph:star-four-duotone" class="mr-1 text-primary-light" />
-            en même temps
+            sans le prix
             <Icon name="ph:star-four-duotone" class="ml-1 text-primary-dark" />
           </span>
         </h1>
         <p class="py-6">
-          Découvrez Vaatigames, un hébergeur de serveurs de jeux en ligne qui
-          vient tout juste de sortir du four !
+          Découvrez Vaatigames, un hébergeur de serveurs de jeux philanthropique 💜
           <br />
-          Vaatigames, c'est la solution parfaite entre hébergeur de quialité et prix
-          éxorbitans. Car ici, <i>c'est vous</i> qui choissisez ce qui est important,
-          <i>pour vous, pour vos projets, et pour votre porte feuille</i>.
+          Vaatigames, c'est la solution parfaite entre hébergeur de qualité et prix
+          éxorbitans. Car ici, <b>c'est nous</b> qui payons l'addition !
         </p>
-        <button class="btn btn-disabled">On arrive bientôt !</button>
+        <a href="/conditions" class="btn btn-ghost">Conditions d'inscriptions</a>
       </div>
     </div>
   </div>
@@ -52,21 +50,40 @@ import { Icon } from "astro-icon/components";
         icon: "ph:checkerboard-duotone",
       },
       {
-        title: "Économique",
+        title: "Panel Intuitif",
         description:
-          "Comme nous vous proposont des prix différents celon les nodes, vous avez le controle sur votre budget et sur votre serveur.",
-        icon: "ph:money-wavy-duotone",
+          "Notre panel est simple d'utilisation, et vous permet de gérer votre serveur en toute simplicité.",
+        icon: "ph:blueprint-duotone",
       },
       {
         title: "Évolutif",
         description:
-          "Grâce à notre système de catégorie hardware, vous pouvez à tout moment changer d'offre et passer à des composant plus performant ou moin couttant.",
+          "Grâce à notre système de catégorie hardware, vous pouvez à tout moment changer d'offre et passer à des composant plus performant.",
         icon: "ph:arrow-fat-lines-up-duotone",
       },
     ]}
   />
-  <Testimonie
-    body="Nous n'avons pas d'avis pour le moment. Soyez le premier à nous noter !"
-  />
+  <div class="flex flex-col justify-center items-center">
+  <div class="carousel rounded-box w-[50rem]">
+    <div class="carousel-item">
+    <Testimonie
+      id="item1"
+      stars="3"
+      body="Nous n'avons pas d'avis pour le moment. Soyez le premier à nous noter !"
+    />
+    </div>
+    <div class="carousel-item">
+      <Testimonie
+        id="item2"
+        stars="5"
+        body="Nous n'avons pas d'avis pour le moment. Soyez le premier à nous noter !"
+      />
+      </div>
+  </div>
+  <div class="flex w-full justify-center gap-2 py-2">
+    <a href="#item1" class="btn btn-primary btn-xs w-6">1</a>
+    <a href="#item2" class="btn btn-primary btn-xs w-6">2</a>
+  </div>
+</div>
   <Team />
 </Layout>
