@@ -254,7 +254,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       ],
     };
 
-    fetch("${FORM_URL}", {
+    async fetch("${FORM_URL}", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -264,7 +264,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
           showMessage("Formulaire envoyé avec succès !", "success");
           form.reset();
         } else {
-          errorMessage = response.body();
+          errorMessage = await response.text();
           throw new Error(`Erreur ${response.status}: ${errorMessage}`);
         }
       })
