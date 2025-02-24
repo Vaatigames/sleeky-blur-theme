@@ -213,11 +213,17 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     });
   });
 
-  document.addEventListener("click", (e) => {
-    if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      dropdownMenu.classList.add("hidden");
-    }
-  });
+  function captchaSuccess() {
+  captchaValid = true;
+  checkFormValidity(); // Vérifie la validité et active/désactive le bouton
+}
+
+function checkFormValidity() {
+  submitBtn.disabled = !form.checkValidity() || !captchaValid;
+}
+
+form.addEventListener('input', checkFormValidity);
+
 });
 
   </script>
