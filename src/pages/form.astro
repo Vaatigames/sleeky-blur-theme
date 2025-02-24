@@ -39,7 +39,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     </div>
 
     <!-- Dropdown personnalisé avec icônes -->
-<div class="relative">
+<div class="relative mt-2">
   <button id="dropdownButton" type="button" class="btn btn-primary w-full flex justify-between items-center">
     <span id="selectedOption">Sélectionnez une option</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -48,19 +48,19 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   </button>
 
   <div id="dropdownMenu" class="absolute w-full bg-white shadow-lg rounded-lg mt-2 hidden">
-    <button class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option1">
+    <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option1">
       <svg class="w-5 h-5 text-blue-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
       </svg>
       Option 1
     </button>
-    <button class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option2">
+    <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option2">
       <svg class="w-5 h-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
       </svg>
       Option 2
     </button>
-    <button class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option3">
+    <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option3">
       <svg class="w-5 h-5 text-red-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
