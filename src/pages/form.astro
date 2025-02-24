@@ -264,7 +264,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
           showMessage("Formulaire envoyé avec succès !", "success");
           form.reset();
         } else {
-          errorMessage = response.text();
+          errorMessage = response.body();
           throw new Error(`Erreur ${response.status}: ${errorMessage}`);
         }
       })
