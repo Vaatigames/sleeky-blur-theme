@@ -268,7 +268,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
           showMessage("Formulaire envoyé avec succès !", "success");
           form.reset();
         } else {
-          throw new Error("Erreur lors de l'envoi");
+          const errorMessage = await response.text(); // Récupère le message d'erreur du serveur
+          throw new Error(`Erreur ${response.status}: ${errorMessage}`);
         }
       })
       .catch((error) => showMessage(`Erreur lors de l'envoi: ${error}`, "error"))
