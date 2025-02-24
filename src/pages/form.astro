@@ -140,7 +140,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       <div class="label">
         <span class="label-text">Présentation de votre projet</span>
       </div>
-      <textarea class="textarea textarea-bordered h-24" placeholder="DEMOCRAFT est un serveur mini-jeux crossplay..."></textarea>
+      <textarea id="desciption" class="textarea textarea-bordered h-24" placeholder="DEMOCRAFT est un serveur mini-jeux crossplay..." />
       <div class="label">
         <span class="label-text-alt">Soyez créatif & précis !</span>
       </div>
@@ -251,6 +251,12 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       embeds: [
         {
           title: "Nouveau formulaire soumis",
+          description: document.getElementById('desciption').value,
+          fields: Array.from(formData.entries()).map(([name, value]) => ({
+            name,
+            value: value.toString() || 'Non fourni',
+            inline: true
+          })),
         },
       ],
     };
