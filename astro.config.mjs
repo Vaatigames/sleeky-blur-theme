@@ -8,5 +8,10 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://vaatigames.ovh',
-  integrations: [tailwind(), sitemap(), icon(), mdx()]
+  integrations: [tailwind(), sitemap(), icon(), mdx()],
+  vite: {
+    server: {
+      allowedHosts: ['code.vaatigames.ovh']
+    }
+  }
 });

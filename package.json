@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -22,7 +22,6 @@
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
-    "@iconify-json/ph": "^1.1.12",
     "daisyui": "^4.10.1"
   }
 }
