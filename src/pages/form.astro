@@ -218,12 +218,11 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   >
     Envoyer le formulaire
   </button>
-
-  { FORM_URL }
 </Layout>
 
 <script is:inline>
   // Validation et soumission
+  const FORM_URL = ${JSON.stringify(FORM_URL)};
   const form = document.getElementById("mainForm");
   const submitBtn = document.getElementById("submitBtn");
   let captchaValid = false;
