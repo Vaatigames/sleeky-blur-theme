@@ -223,17 +223,18 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 <script is:inline>
   // Validation et soumission
   const form = document.getElementById("mainForm");
-  form.addEventListener("submit", handleSubmit);
   const submitBtn = document.getElementById("submitBtn");
   let captchaValid = false;
   let errorMessage = "";
 
+  // Called by your captcha mechanism
   function captchaSuccess() {
     captchaValid = true;
     submitBtn.disabled = !form.checkValidity() || !captchaValid;
   }
 
-  function handleSubmit(e) {
+  // Use async/await in the submit handler
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!form.checkValidity() || !captchaValid) {
@@ -246,34 +247,37 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 
     const formData = new FormData(form);
     const payload = {
-      "content": "Nouvelle soumission de formulaire",
-      "embeds": [
+      content: "Nouvelle soumission de formulaire",
+      embeds: [
         {
-          "title": "Nouveau formulaire soumis",
+          title: "Nouveau formulaire soumis",
         },
       ],
     };
 
-    async fetch("${FORM_URL}", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    })
-      .then((response) => {
-        if (response.ok) {
-          showMessage("Formulaire envoyé avec succès !", "success");
-          form.reset();
-        } else {
-          errorMessage = await response.text();
-          throw new Error(`Erreur ${response.status}: ${errorMessage}`);
-        }
-      })
-      .catch((error) => showMessage(`Erreur lors de l'envoi: ${error}`, "error"))
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = "Envoyer le formulaire";
+    try {
+      const response = await fetch("${FORM_URL}", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      if (response.ok) {
+        showMessage("Formulaire envoyé avec succès !", "success");
+        form.reset();
+      } else {
+        errorMessage = await response.text();
+        throw new Error(`Erreur ${response.status}: ${errorMessage}`);
+      }
+    } catch (error) {
+      showMessage(`Erreur lors de l'envoi: ${error}`, "error");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "Envoyer le formulaire";
+    }
   }
+
+  form.addEventListener("submit", handleSubmit);
 
   function showMessage(text, type) {
     const messageEl = document.getElementById("message");
@@ -305,11 +309,6 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       });
     });
 
-    function captchaSuccess() {
-      captchaValid = true;
-      checkFormValidity(); // Vérifie la validité et active/désactive le bouton
-    }
-
     function checkFormValidity() {
       submitBtn.disabled = !form.checkValidity() || !captchaValid;
     }
@@ -318,5 +317,4 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   });
 </script>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
-></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
