@@ -271,7 +271,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
           throw new Error("Erreur lors de l'envoi");
         }
       })
-      .catch(() => showMessage("Erreur lors de l'envoi", "error"))
+      .catch((error) => showMessage("Erreur lors de l'envoi", "error"))
       .finally(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = "Envoyer le formulaire";
