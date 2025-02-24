@@ -38,18 +38,39 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       />
     </div>
 
-    <!-- Dropdown personnalisé -->
-    <div class="form-control">
-      <label class="label">
-        <span class="label-text">Options</span>
-      </label>
-      <select class="select select-bordered w-full" name="customDropdown" required>
-        <option disabled selected>Sélectionnez une option</option>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-      </select>
-    </div>
+    <!-- Dropdown personnalisé avec icônes -->
+<div class="relative">
+  <button id="dropdownButton" type="button" class="btn btn-primary w-full flex justify-between items-center">
+    <span id="selectedOption">Sélectionnez une option</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 9l-7.5 7.5L4.5 9"></path>
+    </svg>
+  </button>
+
+  <div id="dropdownMenu" class="absolute w-full bg-white shadow-lg rounded-lg mt-2 hidden">
+    <button class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option1">
+      <svg class="w-5 h-5 text-blue-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+      </svg>
+      Option 1
+    </button>
+    <button class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option2">
+      <svg class="w-5 h-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+      </svg>
+      Option 2
+    </button>
+    <button class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option3">
+      <svg class="w-5 h-5 text-red-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+      Option 3
+    </button>
+  </div>
+  
+  <input type="hidden" name="customDropdown" id="dropdownInput">
+</div>
+
 
     <!-- Champ Fichier -->
     <div class="form-control">
@@ -174,6 +195,32 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     form.addEventListener('input', () => {
       submitBtn.disabled = !form.checkValidity() || !captchaValid;
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const dropdownButton = document.getElementById("dropdownButton");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const dropdownInput = document.getElementById("dropdownInput");
+  const selectedOption = document.getElementById("selectedOption");
+
+  dropdownButton.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
+  });
+
+  dropdownMenu.querySelectorAll(".dropdown-item").forEach(item => {
+    item.addEventListener("click", () => {
+      selectedOption.textContent = item.textContent.trim();
+      dropdownInput.value = item.dataset.value;
+      dropdownMenu.classList.add("hidden");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.add("hidden");
+    }
+  });
+});
+
   </script>
 
   <script 
