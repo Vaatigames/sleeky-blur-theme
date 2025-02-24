@@ -220,9 +220,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   </button>
 </Layout>
 
-<script is:inline>
-  // Validation et soumission
-  const FORM_URL = "https://discord.com/api/webhooks/1231171253436547204/T65rIsCvycchrKBLQpO_QtMnjlFQaf9SQyBAePDISUXKyMub81eO2eENt_CYvZ_zCw5l";
+<script is:inline data-form-url={FORM_URL}>
+  const { formUrl } = document.currentScript.dataset;
   const form = document.getElementById("mainForm");
   const submitBtn = document.getElementById("submitBtn");
   let captchaValid = false;
@@ -238,7 +237,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (!form.checkValidity() || !captchaValid) {
+    if (!form.checkValidity() ) {//} || !captchaValid) {
       showMessage("Veuillez remplir tous les champs correctement", "error");
       return;
     }
@@ -257,7 +256,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     };
 
     try {
-      const response = await fetch(`${FORM_URL}`, {
+      const response = await fetch(formUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -311,7 +310,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     });
 
     function checkFormValidity() {
-      submitBtn.disabled = !form.checkValidity() || !captchaValid;
+      submitBtn.disabled = !form.checkValidity() //|| !captchaValid;
     }
 
     form.addEventListener("input", checkFormValidity);
