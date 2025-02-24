@@ -64,8 +64,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       </label>
       <input
         type="text"
-        name="fullname"
-        placeholder="Votre nom"
+        name="projet"
+        placeholder="Votre nom de projet"
         class="input input-bordered"
         required
         minlength="3"
@@ -151,7 +151,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
         <span class="label-text">Évènement (-1 mois)</span>
         <input
           type="radio"
-          name="radio-10"
+          name="temps"
+          value="event-cours"
           class="radio checked:bg-violet-500"
           checked="checked"
         />
@@ -162,7 +163,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
         <span class="label-text">Évènement (+1 mois)</span>
         <input
           type="radio"
-          name="radio-10"
+          name="temps"
+          value="event-long"
           class="radio checked:bg-blue-500"
           checked="checked"
         />
@@ -172,7 +174,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       <span class="label-text">Définitif</span>
       <input
         type="radio"
-        name="radio-10"
+        name="temps"
+        value="projet"
         class="radio checked:bg-red-500"
         checked="checked"
       />
@@ -183,7 +186,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     <label class="label">
       <span class="label-text">Slots</span>
     </label>
-    <input type="range" min="1" max="10" value="1" class="range" step="1" />
+    <input type="range" min="1" max="10" value="1" class="range" step="1" id="slots" name="slots" />
     <div class="flex w-full justify-between px-2 text-xs mb-2">
       <span>1</span>
       <span>2</span>
@@ -250,7 +253,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       content: "Nouvelle soumission de formulaire",
       embeds: [
         {
-          title: "Nouveau formulaire soumis",
+          title: `Nouveau formulaire soumis - ${document.getElementById('slots').value}S`,
           description: document.getElementById('desciption').value,
           fields: Array.from(formData.entries()).map(([name, value]) => ({
             name,
