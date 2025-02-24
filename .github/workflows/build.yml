@@ -1,4 +1,8 @@
-name: Deploy to GitHub Pages
+name: ☁️ Déploiement GH Pages
+
+env:
+  CLOUDFLARE_CAPTCHA_KEY: ${{ secrets.CLOUDFLARE_CAPTCHA_KEY }}
+  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -18,9 +22,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: "📥 Téléchargement du code"
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
+      - name: "📝 Création de l'environnement"
+        run: |
+          echo "CLOUDFLARE_CAPTCHA_KEY=${{ secrets.CLOUDFLARE_CAPTCHA_KEY }}" >> .env
+          echo "DISCORD_WEBHOOK=${{ secrets.DISCORD_WEBHOOK }}" >> .env
+      - name: "✨️ CI Astro"
         uses: withastro/action@v3
         # with:
           # path: . # The root location of your Astro project inside the repository. (optional)
@@ -34,6 +42,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: "🌐 Déploiement"
         id: deployment
         uses: actions/deploy-pages@v4
