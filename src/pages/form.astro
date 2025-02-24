@@ -105,9 +105,62 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       />
     </div>
 
+    <div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Red pill</span>
+    <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked="checked" />
+  </label>
+</div>
+<div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Blue pill</span>
+    <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked="checked" />
+  </label>
+</div>
+
+<input type="range" min="0" max="100" value="25" class="range" step="25" />
+<div class="flex w-full justify-between px-2 text-xs">
+  <span>|</span>
+  <span>|</span>
+  <span>|</span>
+  <span>|</span>
+  <span>|</span>
+</div>
+
+<div class="rating gap-1">
+  <input type="radio" name="rating-3" class="mask mask-heart bg-red-400" />
+  <input type="radio" name="rating-3" class="mask mask-heart bg-orange-400" checked="checked" />
+  <input type="radio" name="rating-3" class="mask mask-heart bg-yellow-400" />
+  <input type="radio" name="rating-3" class="mask mask-heart bg-lime-400" />
+  <input type="radio" name="rating-3" class="mask mask-heart bg-green-400" />
+</div>
+
+<textarea class="textarea textarea-bordered" placeholder="Bio"></textarea>
+
+<div class="flex flex-col">
+  <div class="form-control w-52">
+    <label class="label cursor-pointer">
+      <span class="label-text">Remember me</span>
+      <input type="checkbox" class="toggle toggle-primary" checked="checked" />
+    </label>
+  </div>
+  <div class="form-control w-52">
+    <label class="label cursor-pointer">
+      <span class="label-text">Remember me</span>
+      <input type="checkbox" class="toggle toggle-secondary" checked="checked" />
+    </label>
+  </div>
+  <div class="form-control w-52">
+    <label class="label cursor-pointer">
+      <span class="label-text">Remember me</span>
+      <input type="checkbox" class="toggle toggle-accent" checked="checked" />
+    </label>
+  </div>
+</div>
+
     <!-- CAPTCHA Cloudflare -->
     <div
-      class="cf-turnstile"
+      class="cf-turnstile w-full"
       data-sitekey={CAPTCHA_SITE_KEY}
       data-callback="captchaSuccess"
       data-language="fr"
