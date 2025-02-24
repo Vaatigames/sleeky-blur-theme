@@ -250,16 +250,26 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 
     const formData = new FormData(form);
     const payload = {
-      content: "Nouvelle soumission de formulaire",
       embeds: [
         {
-          title: `Nouveau formulaire soumis - ${document.getElementById('slots').value}S`,
+          title: "Nouveau formulaire soumis",
           description: document.getElementById('desciption').value,
-          fields: Array.from(formData.entries()).map(([name, value]) => ({
-            name,
-            value: value.toString() || 'Non fourni',
-            inline: true
-          })),
+          fields: Array.from(formData.entries())
+            .filter(([name]) => name !== 'cf-turnstile-response') // Exclure 'cf-turnstile-response'
+            .map(([name, value]) => ({
+                name: {
+                    name: "👤 Nom",
+                    email: "✉️ Email",
+                    discord: "💬 Discord",
+                    projet: "📒 Nom du Projet",
+                    customDropdown: "📦 Type de Serveur",
+                    temps: "⏳️ Expiration",
+                    slots: "💾 Serveurs (Slots)"
+                }[name] || name, // Remplace le nom si une correspondance est trouvée, sinon garde le nom d'origine
+                value: value.toString() || 'Non fourni',
+                inline: true
+             }
+           )),
         },
       ],
     };
