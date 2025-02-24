@@ -1,0 +1,183 @@
+---
+// src/pages/formulaire.astro
+import Layout from '../layouts/main.astro';
+
+const FORM_URL = import.meta.env.DISCORD_WEBHOOK;
+const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
+---
+
+<Layout title="Formulaire avancé">
+  <form class="max-w-2xl mx-auto p-6" id="mainForm" on:submit={handleSubmit}>
+    <!-- Champ Texte -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Nom complet</span>
+      </label>
+      <input 
+        type="text" 
+        name="fullname"
+        placeholder="Votre nom"
+        class="input input-bordered"
+        required
+        minlength="3"
+      />
+    </div>
+
+    <!-- Email avec validation -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Email</span>
+      </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="email@exemple.com"
+        class="input input-bordered"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      />
+    </div>
+
+    <!-- Dropdown personnalisé -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Options</span>
+      </label>
+      <select class="select select-bordered w-full" name="customDropdown" required>
+        <option disabled selected>Sélectionnez une option</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+    </div>
+
+    <!-- Champ Fichier -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Upload de fichier</span>
+      </label>
+      <input
+        type="file"
+        class="file-input file-input-bordered w-full"
+        accept=".pdf,.doc,.docx"
+      />
+    </div>
+
+    <!-- Checkbox group -->
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span class="label-text">Options multiples</span> 
+        <input type="checkbox" name="options" class="checkbox" value="option1" />
+      </label>
+      <!-- Ajouter plus de checkboxes si nécessaire -->
+    </div>
+
+    <!-- Date picker -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Date</span>
+      </label>
+      <input
+        type="date"
+        name="date"
+        class="input input-bordered"
+        required
+      />
+    </div>
+
+    <!-- CAPTCHA Cloudflare -->
+    <div
+      class="cf-turnstile"
+      data-sitekey={CAPTCHA_SITE_KEY}
+      data-callback="captchaSuccess"
+      data-language="fr"
+    ></div>
+
+    <!-- Messages d'erreur/succès -->
+    <div id="message" class="mt-4 hidden"></div>
+
+    <!-- Bouton de soumission -->
+    <button
+      type="submit"
+      class="btn btn-primary mt-4 w-full"
+      disabled
+      id="submitBtn"
+    >
+      Envoyer le formulaire
+    </button>
+  </form>
+
+  <script is:inline>
+    // Validation et soumission
+    const form = document.getElementById('mainForm');
+    const submitBtn = document.getElementById('submitBtn');
+    let captchaValid = false;
+
+    function captchaSuccess() {
+      captchaValid = true;
+      submitBtn.disabled = !form.checkValidity() || !captchaValid;
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      
+      if (!form.checkValidity() || !captchaValid) {
+        showMessage('Veuillez remplir tous les champs correctement', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Envoi en cours...';
+
+      const formData = new FormData(form);
+      const payload = {
+        content: 'Nouvelle soumission de formulaire',
+        embeds: [{
+          title: 'Nouveau formulaire soumis',
+          fields: Array.from(formData.entries()).map(([name, value]) => ({
+            name,
+            value: value.toString() || 'Non fourni',
+            inline: true
+          }))
+        }]
+      };
+
+      fetch('${FORM_URL}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          showMessage('Formulaire envoyé avec succès !', 'success');
+          form.reset();
+        } else {
+          throw new Error('Erreur lors de l\'envoi');
+        }
+      })
+      .catch(() => showMessage('Erreur lors de l\'envoi', 'error'))
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Envoyer le formulaire';
+      });
+    }
+
+    function showMessage(text, type) {
+      const messageEl = document.getElementById('message');
+      messageEl.className = `alert alert-${type} mt-4`;
+      messageEl.textContent = text;
+      messageEl.classList.remove('hidden');
+    }
+
+    // Validation en temps réel
+    form.addEventListener('input', () => {
+      submitBtn.disabled = !form.checkValidity() || !captchaValid;
+    });
+  </script>
+
+  <script 
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
+    async 
+    defer
+  ></script>
+</Layout>
