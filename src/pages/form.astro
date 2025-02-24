@@ -48,21 +48,13 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   </button>
 
   <div id="dropdownMenu" class="absolute w-full bg-white shadow-lg rounded-lg mt-2 hidden">
-    <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option1">
+    <button type="button" class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100" data-value="option1">
       <Icon name="tabler:brand-minecraft"/>
       Minecraft
     </button>
-    <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option2">
-      <svg class="w-5 h-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-      </svg>
-      Option 2
-    </button>
-    <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option3">
-      <svg class="w-5 h-5 text-red-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-      </svg>
-      Option 3
+    <button type="button" class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100" data-value="option2">
+      <Icon name="tabler:brand-python"/>
+      Python
     </button>
   </div>
   
