@@ -226,6 +226,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   form.addEventListener("submit", handleSubmit);
   const submitBtn = document.getElementById("submitBtn");
   let captchaValid = false;
+  let errorMessage = "";
 
   function captchaSuccess() {
     captchaValid = true;
@@ -268,7 +269,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
           showMessage("Formulaire envoyé avec succès !", "success");
           form.reset();
         } else {
-          const errorMessage = await response.text(); // Récupère le message d'erreur du serveur
+          errorMessage = await response.text();
           throw new Error(`Erreur ${response.status}: ${errorMessage}`);
         }
       })
