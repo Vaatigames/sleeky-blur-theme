@@ -4,7 +4,9 @@ import { Icon } from "astro-icon/components";
 
 const FORM_URL = import.meta.env.DISCORD_WEBHOOK;
 const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
----<Layout title="Formulaire avancé">
+---
+
+<Layout title="Formulaire avancé">
   <form class="w-full md:w-1/2 mx-auto p-6 pt-20" id="mainForm">
     <h1 class="text-xl lg:text-3x font-bold my-3">Profil</h1>
     <!-- Champ Texte -->
@@ -100,6 +102,16 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 
       <input type="hidden" name="customDropdown" id="dropdownInput" />
     </div>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">Présentation de votre projet</span>
+      </div>
+      <textarea class="textarea textarea-bordered h-24" placeholder="DEMOCRAFT est un serveur mini-jeux crossplay..."></textarea>
+      <div class="label">
+        <span class="label-text-alt">Soyez créatif & précis !</span>
+      </div>
+    </label>
 
     <div class="form-control">
       <label class="label cursor-pointer">
