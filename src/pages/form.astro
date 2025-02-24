@@ -246,15 +246,10 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 
     const formData = new FormData(form);
     const payload = {
-      content: "Nouvelle soumission de formulaire",
-      embeds: [
+      "content": "Nouvelle soumission de formulaire",
+      "embeds": [
         {
-          title: "Nouveau formulaire soumis",
-          fields: Array.from(formData.entries()).map(([name, value]) => ({
-            name,
-            value: value.toString() || "Non fourni",
-            inline: true,
-          })),
+          "title": "Nouveau formulaire soumis",
         },
       ],
     };
