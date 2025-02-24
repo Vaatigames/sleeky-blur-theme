@@ -1,20 +1,19 @@
 ---
-import Layout from '../layouts/Captcha.astro';
+import Layout from "../layouts/Captcha.astro";
 import { Icon } from "astro-icon/components";
 
 const FORM_URL = import.meta.env.DISCORD_WEBHOOK;
 const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
----
-
-<Layout title="Formulaire avancé">
-  <form class="max-w-2xl mx-auto p-6 pt-20" id="mainForm">
+---<Layout title="Formulaire avancé">
+  <form class="w-full md:w-1/2 mx-auto p-6 pt-20" id="mainForm">
+    <h1 class="text-xl lg:text-3x font-bold my-3">Profil</h1>
     <!-- Champ Texte -->
     <div class="form-control">
       <label class="label">
         <span class="label-text">Nom complet</span>
       </label>
-      <input 
-        type="text" 
+      <input
+        type="text"
         name="fullname"
         placeholder="Votre nom"
         class="input input-bordered"
@@ -38,242 +37,247 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       />
     </div>
 
-    <!-- Dropdown personnalisé avec icônes -->
-<div class="relative mt-2">
-  <button id="dropdownButton" type="button" class="input input-bordered w-full flex justify-between items-center">
-    <span id="selectedOption">Sélectionnez une option</span>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 9l-7.5 7.5L4.5 9"></path>
-    </svg>
-  </button>
+    <h1 class="text-xl lg:text-3x font-bold my-3">Projet</h1>
 
-  <div id="dropdownMenu" class="absolute w-full bg-white shadow-lg rounded-lg mt-2 hidden">
-    <button type="button" class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100" data-value="option1">
-      <Icon name="tabler:brand-minecraft"/>
-      Minecraft
-    </button>
-    <button type="button" class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100" data-value="option2">
-      <Icon name="tabler:brand-python"/>
-      Python
-    </button>
-  </div>
-  
-  <input type="hidden" name="customDropdown" id="dropdownInput">
-</div>
-
-
-    <!-- Champ Fichier -->
     <div class="form-control">
       <label class="label">
-        <span class="label-text">Upload de fichier</span>
+        <span class="label-text">Nom complet</span>
       </label>
       <input
-        type="file"
-        class="file-input file-input-bordered w-full"
-        accept=".pdf,.doc,.docx"
+        type="text"
+        name="fullname"
+        placeholder="Votre nom"
+        class="input input-bordered"
+        required
+        minlength="3"
       />
     </div>
 
-    <!-- Checkbox group -->
+    <!-- Dropdown personnalisé avec icônes -->
+    <div class="relative mt-2">
+      <button
+        id="dropdownButton"
+        type="button"
+        class="input input-bordered w-full flex justify-between items-center"
+      >
+        <span id="selectedOption">Type de serveur</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 9l-7.5 7.5L4.5 9"></path>
+        </svg>
+      </button>
+
+      <div
+        id="dropdownMenu"
+        class="absolute w-full bg-white shadow-lg rounded-lg mt-2 hidden"
+      >
+        <button
+          type="button"
+          class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100"
+          data-value="option1"
+        >
+          <Icon name="tabler:brand-minecraft" />
+          Minecraft
+        </button>
+        <button
+          type="button"
+          class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100"
+          data-value="option2"
+        >
+          <Icon name="tabler:brand-python" />
+          Python
+        </button>
+      </div>
+
+      <input type="hidden" name="customDropdown" id="dropdownInput" />
+    </div>
+
     <div class="form-control">
       <label class="label cursor-pointer">
-        <span class="label-text">Options multiples</span> 
-        <input type="checkbox" name="options" class="checkbox" value="option1" />
+        <span class="label-text">Évènement (-1 mois)</span>
+        <input
+          type="radio"
+          name="radio-10"
+          class="radio checked:bg-violet-500"
+          checked="checked"
+        />
       </label>
-      <!-- Ajouter plus de checkboxes si nécessaire -->
     </div>
-
-    <!-- Date picker -->
     <div class="form-control">
-      <label class="label">
-        <span class="label-text">Date</span>
+      <label class="label cursor-pointer">
+        <span class="label-text">Évènement (+1 mois)</span>
+        <input
+          type="radio"
+          name="radio-10"
+          class="radio checked:bg-blue-500"
+          checked="checked"
+        />
       </label>
+    </div>
+    <label class="label cursor-pointer">
+      <span class="label-text">Définitif</span>
       <input
-        type="date"
-        name="date"
-        class="input input-bordered w-full"
-        required
+        type="radio"
+        name="radio-10"
+        class="radio checked:bg-red-500"
+        checked="checked"
       />
+    </label>
+
+
+  <div class="form-control">
+    <label class="label">
+      <span class="label-text">Slots</span>
+    </label>
+    <input type="range" min="1" max="10" value="1" class="range" step="1" />
+    <div class="flex w-full justify-between px-2 text-xs mb-2">
+      <span>1</span>
+      <span>|</span>
+      <span>|</span>
+      <span>|</span>
+      <span>5</span>
+      <span>|</span>
+      <span class="max-sm:hidden">|</span>
+      <span class="max-sm:hidden">|</span>
+      <a href="/conditions#slots" class="link">C'est quoi un slot ?</a>
     </div>
-
-    <div class="form-control">
-  <label class="label cursor-pointer">
-    <span class="label-text">Red pill</span>
-    <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked="checked" />
-  </label>
-</div>
-<div class="form-control">
-  <label class="label cursor-pointer">
-    <span class="label-text">Blue pill</span>
-    <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked="checked" />
-  </label>
-</div>
-
-<input type="range" min="0" max="100" value="25" class="range" step="25" />
-<div class="flex w-full justify-between px-2 text-xs">
-  <span>|</span>
-  <span>|</span>
-  <span>|</span>
-  <span>|</span>
-  <span>|</span>
-</div>
-
-<div class="rating gap-1 flex w-full justify-center items-center">
-  <input type="radio" name="rating-3" class="mask mask-heart bg-red-400" />
-  <input type="radio" name="rating-3" class="mask mask-heart bg-orange-400" checked="checked" />
-  <input type="radio" name="rating-3" class="mask mask-heart bg-yellow-400" />
-  <input type="radio" name="rating-3" class="mask mask-heart bg-lime-400" />
-  <input type="radio" name="rating-3" class="mask mask-heart bg-green-400" />
-</div>
- 
-<div class="flex flex-col">
-  <div class="form-control w-52">
-    <label class="label cursor-pointer">
-      <span class="label-text">Remember me</span>
-      <input type="checkbox" class="toggle toggle-primary" checked="checked" />
-    </label>
   </div>
-  <div class="form-control w-52">
-    <label class="label cursor-pointer">
-      <span class="label-text">Remember me</span>
-      <input type="checkbox" class="toggle toggle-secondary" checked="checked" />
-    </label>
+
+  <textarea class="textarea textarea-bordered w-full" placeholder="Bio"
+  ></textarea>
+
+  <!-- CAPTCHA Cloudflare -->
+  <div
+    class="cf-turnstile w-full flex justify-center items-center"
+    data-sitekey={CAPTCHA_SITE_KEY}
+    data-callback="captchaSuccess"
+    data-language="fr"
+  >
   </div>
-  <div class="form-control w-52">
-    <label class="label cursor-pointer">
-      <span class="label-text">Remember me</span>
-      <input type="checkbox" class="toggle toggle-accent" checked="checked" />
-    </label>
-  </div>
-</div>
-<textarea class="textarea textarea-bordered w-full" placeholder="Bio"></textarea>
 
-    <!-- CAPTCHA Cloudflare -->
-    <div
-      class="cf-turnstile w-full flex justify-center items-center"
-      data-sitekey={CAPTCHA_SITE_KEY}
-      data-callback="captchaSuccess"
-      data-language="fr"
-    ></div>
+  <!-- Messages d'erreur/succès -->
+  <div id="message" class="mt-4 hidden"></div>
 
-    <!-- Messages d'erreur/succès -->
-    <div id="message" class="mt-4 hidden"></div>
+  <!-- Bouton de soumission -->
+  <button
+    type="submit"
+    class="btn btn-primary mt-4 w-full"
+    disabled
+    id="submitBtn"
+  >
+    Envoyer le formulaire
+  </button>
+</Layout>
 
-    <!-- Bouton de soumission -->
-    <button
-      type="submit"
-      class="btn btn-primary mt-4 w-full"
-      disabled
-      id="submitBtn"
-    >
-      Envoyer le formulaire
-    </button>
-  </form>
+<script is:inline>
+  // Validation et soumission
+  const form = document.getElementById("mainForm");
+  form.addEventListener("submit", handleSubmit);
+  const submitBtn = document.getElementById("submitBtn");
+  let captchaValid = false;
 
-  <script is:inline>
-    // Validation et soumission
-    const form = document.getElementById('mainForm');
-    form.addEventListener('submit', handleSubmit);
-    const submitBtn = document.getElementById('submitBtn');
-    let captchaValid = false;
+  function captchaSuccess() {
+    captchaValid = true;
+    submitBtn.disabled = !form.checkValidity() || !captchaValid;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!form.checkValidity() || !captchaValid) {
+      showMessage("Veuillez remplir tous les champs correctement", "error");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Envoi en cours...";
+
+    const formData = new FormData(form);
+    const payload = {
+      content: "Nouvelle soumission de formulaire",
+      embeds: [
+        {
+          title: "Nouveau formulaire soumis",
+          fields: Array.from(formData.entries()).map(([name, value]) => ({
+            name,
+            value: value.toString() || "Non fourni",
+            inline: true,
+          })),
+        },
+      ],
+    };
+
+    fetch("${FORM_URL}", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          showMessage("Formulaire envoyé avec succès !", "success");
+          form.reset();
+        } else {
+          throw new Error("Erreur lors de l'envoi");
+        }
+      })
+      .catch(() => showMessage("Erreur lors de l'envoi", "error"))
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "Envoyer le formulaire";
+      });
+  }
+
+  function showMessage(text, type) {
+    const messageEl = document.getElementById("message");
+    messageEl.className = `alert alert-${type} mt-4`;
+    messageEl.textContent = text;
+    messageEl.classList.remove("hidden");
+  }
+
+  // Validation en temps réel
+  form.addEventListener("input", () => {
+    submitBtn.disabled = !form.checkValidity() || !captchaValid;
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdownButton = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const dropdownInput = document.getElementById("dropdownInput");
+    const selectedOption = document.getElementById("selectedOption");
+
+    dropdownButton.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("hidden");
+    });
+
+    dropdownMenu.querySelectorAll(".dropdown-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        selectedOption.textContent = item.textContent.trim();
+        dropdownInput.value = item.dataset.value;
+        dropdownMenu.classList.add("hidden");
+      });
+    });
 
     function captchaSuccess() {
       captchaValid = true;
+      checkFormValidity(); // Vérifie la validité et active/désactive le bouton
+    }
+
+    function checkFormValidity() {
       submitBtn.disabled = !form.checkValidity() || !captchaValid;
     }
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      
-      if (!form.checkValidity() || !captchaValid) {
-        showMessage('Veuillez remplir tous les champs correctement', 'error');
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Envoi en cours...';
-
-      const formData = new FormData(form);
-      const payload = {
-        content: 'Nouvelle soumission de formulaire',
-        embeds: [{
-          title: 'Nouveau formulaire soumis',
-          fields: Array.from(formData.entries()).map(([name, value]) => ({
-            name,
-            value: value.toString() || 'Non fourni',
-            inline: true
-          }))
-        }]
-      };
-
-      fetch('${FORM_URL}', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (response.ok) {
-          showMessage('Formulaire envoyé avec succès !', 'success');
-          form.reset();
-        } else {
-          throw new Error('Erreur lors de l\'envoi');
-        }
-      })
-      .catch(() => showMessage('Erreur lors de l\'envoi', 'error'))
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Envoyer le formulaire';
-      });
-    }
-
-    function showMessage(text, type) {
-      const messageEl = document.getElementById('message');
-      messageEl.className = `alert alert-${type} mt-4`;
-      messageEl.textContent = text;
-      messageEl.classList.remove('hidden');
-    }
-
-    // Validation en temps réel
-    form.addEventListener('input', () => {
-      submitBtn.disabled = !form.checkValidity() || !captchaValid;
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-  const dropdownButton = document.getElementById("dropdownButton");
-  const dropdownMenu = document.getElementById("dropdownMenu");
-  const dropdownInput = document.getElementById("dropdownInput");
-  const selectedOption = document.getElementById("selectedOption");
-
-  dropdownButton.addEventListener("click", () => {
-    dropdownMenu.classList.toggle("hidden");
+    form.addEventListener("input", checkFormValidity);
   });
+</script>
 
-  dropdownMenu.querySelectorAll(".dropdown-item").forEach(item => {
-    item.addEventListener("click", () => {
-      selectedOption.textContent = item.textContent.trim();
-      dropdownInput.value = item.dataset.value;
-      dropdownMenu.classList.add("hidden");
-    });
-  });
-
-  function captchaSuccess() {
-  captchaValid = true;
-  checkFormValidity(); // Vérifie la validité et active/désactive le bouton
-}
-
-function checkFormValidity() {
-  submitBtn.disabled = !form.checkValidity() || !captchaValid;
-}
-
-form.addEventListener('input', checkFormValidity);
-
-});
-
-  </script>
-
-  <script 
-    src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
-    async 
-    defer
-  ></script>
-</Layout>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
+></script>
