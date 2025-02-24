@@ -16,7 +16,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
       </label>
       <input
         type="text"
-        name="fullname"
+        name="name"
         placeholder="Votre nom"
         class="input input-bordered"
         required
@@ -37,6 +37,23 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
         required
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
       />
+    </div>
+
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Pseudo Discord</span>
+      </label>
+      <input
+        type="text"
+        name="discord"
+        placeholder="@funasitien"
+        class="input input-bordered"
+        required
+        minlength="3"
+      />
+      <label class="label">
+        <span class="label-text-alt">N'oubliez pas de <a href="https://dsc.vaatugames.ovh" target="_blank" class="link">serveur discord</a> !</span>
+      </label>
     </div>
 
     <h1 class="text-xl lg:text-3x font-bold my-3">Projet</h1>
@@ -80,23 +97,39 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 
       <div
         id="dropdownMenu"
-        class="absolute w-full shadow-lg rounded-lg mt-2 border-2 bg-white dark:bg-gray-700 border-base-300 hidden"
+        class="absolute w-full shadow-lg rounded-lg mt-2 textarea textarea-bordered hidden"
       >
         <button
           type="button"
-          class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100"
-          data-value="option1"
+          class="dropdown-item flex items-center p-2 gap-2 w-full"
+          data-value="jeu"
         >
           <Icon name="tabler:brand-minecraft" />
-          Minecraft
+          Jeu
         </button>
         <button
           type="button"
-          class="dropdown-item flex items-center p-2 gap-2 w-full hover:bg-gray-100"
-          data-value="option2"
+          class="dropdown-item flex items-center p-2 gap-2 w-full"
+          data-value="code"
         >
           <Icon name="tabler:brand-python" />
-          Python
+          Code
+        </button>
+        <button
+          type="button"
+          class="dropdown-item flex items-center p-2 gap-2 w-full"
+          data-value="option1"
+        >
+          <Icon name="tabler:brand-minecraft" />
+          Jeu
+        </button>
+        <button
+          type="button"
+          class="dropdown-item flex items-center p-2 gap-2 w-full"
+          data-value="autre"
+        >
+          <Icon name="tabler:brand-python" />
+          Autre
         </button>
       </div>
 
