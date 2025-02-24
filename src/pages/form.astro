@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Captcha.astro';
+import { Icon } from "astro-icon/components";
 
 const FORM_URL = import.meta.env.DISCORD_WEBHOOK;
 const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
@@ -48,10 +49,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 
   <div id="dropdownMenu" class="absolute w-full bg-white shadow-lg rounded-lg mt-2 hidden">
     <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option1">
-      <svg class="w-5 h-5 text-blue-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-      </svg>
-      Option 1
+      <Icon name="tabler:brand-minecraft"/>
+      Minecraft
     </button>
     <button type="button" class="dropdown-item flex items-center p-2 w-full hover:bg-gray-100" data-value="option2">
       <svg class="w-5 h-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
