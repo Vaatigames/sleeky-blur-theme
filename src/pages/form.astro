@@ -7,7 +7,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 ---
 
 <Layout title="Formulaire avancé">
-  <form class="max-w-2xl mx-auto p-6" id="mainForm" on:submit={handleSubmit}>
+  <form class="max-w-2xl mx-auto p-6" id="mainForm">
     <!-- Champ Texte -->
     <div class="form-control">
       <label class="label">
@@ -110,6 +110,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   <script is:inline>
     // Validation et soumission
     const form = document.getElementById('mainForm');
+    form.addEventListener('submit', handleSubmit);
     const submitBtn = document.getElementById('submitBtn');
     let captchaValid = false;
 
