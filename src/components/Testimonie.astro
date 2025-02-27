@@ -43,10 +43,10 @@ import { Icon } from "astro-icon/components";
     </figcaption>
     <div class="flex justify-center items-center mt-6 space-x-2"> 
       {Array.from({ length: stars }).map((_, index) => (
-        <Icon name="tabler:star" class="text-yellow-500 text-2xl" />
+        <Icon name="tabler:star-filled" class="text-yellow-500 text-2xl" />
       ))}
       {Array.from({ length: 5 - stars }).map((_, index) => (
-        <Icon name="tabler:star" class="text-gray-500 text-2xl" />
+        <Icon name="tabler:star-filled" class="text-gray-500 text-2xl" />
       ))}
     </div>
   </figure>
