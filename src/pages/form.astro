@@ -2,7 +2,6 @@
 import Layout from "../layouts/Captcha.astro";
 import { Icon } from "astro-icon/components";
 
-const FORM_URL = import.meta.env.DISCORD_WEBHOOK;
 const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 ---
 
@@ -223,8 +222,8 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   </button>
 </Layout>
 
-<script is:inline data-form-url={FORM_URL}>
-  const { formUrl } = document.currentScript.dataset;
+<script>
+  const { formUrl } = "https://code.pokekerna.xyz";
   const form = document.getElementById("mainForm");
   const submitBtn = document.getElementById("submitBtn");
   let captchaValid = false;
