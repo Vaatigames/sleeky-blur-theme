@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Captcha.astro";
 import { Icon } from "astro-icon/components";
-
-const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
 ---
 
 <Layout title="Formulaire avancé">
@@ -202,7 +200,7 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
   <!-- CAPTCHA Cloudflare -->
   <div
     class="cf-turnstile w-full flex justify-center items-center"
-    data-sitekey={CAPTCHA_SITE_KEY}
+    data-sitekey="0x4AAAAAAAyYw5UVcUavaLIS"
     data-callback="captchaSuccess"
     data-language="fr"
   >
@@ -334,5 +332,3 @@ const CAPTCHA_SITE_KEY = import.meta.env.CLOUDFLARE_CAPTCHA_KEY;
     form.addEventListener("input", checkFormValidity);
   });
 </script>
-
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
