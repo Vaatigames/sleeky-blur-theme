@@ -216,7 +216,6 @@ import { Icon } from "astro-icon/components";
 
 
 <script is:inline>
-  const { formUrl } = "https://code.pokekerna.xyz";
   const form = document.getElementById("mainForm");
   const submitBtn = document.getElementById("submitBtn");
   submitBtn.addEventListener("click", handleSubmit);
@@ -268,7 +267,7 @@ import { Icon } from "astro-icon/components";
     };
 
     try {
-      const response = await fetch(formUrl, {
+      const response = await fetch("https://code.pokekerna.xyz/webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
