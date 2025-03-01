@@ -210,20 +210,16 @@ import { Icon } from "astro-icon/components";
   <div id="message" class="mt-4 hidden"></div>
 
   <!-- Bouton de soumission -->
-  <button
-    type="submit"
-    class="btn btn-primary mt-4 w-full"
-    disabled
-    id="submitBtn"
-  >
+  <button type="button" class="btn btn-primary mt-4 w-full" disabled id="submitBtn">
     Envoyer le formulaire
   </button>
-</Layout>
+
 
 <script is:inline>
   const { formUrl } = "https://code.pokekerna.xyz";
   const form = document.getElementById("mainForm");
   const submitBtn = document.getElementById("submitBtn");
+  submitBtn.addEventListener("click", handleSubmit);
   let captchaValid = false;
   let errorMessage = "";
 
