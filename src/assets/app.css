@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --color-primary-light: var(--color-primary-light);
+    --color-primary-medium: var(--color-primary-medium);
+    --color-primary-dark: var(--color-primary-dark);
+}
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    --color-primary: "#a855f7";
+    --color-primary-light: "#c084fc";
+    --color-primary-medium: "#a855f7";
+    --color-primary-dark: "#9333ea";
+    --radius-selector: 2rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.3125rem;
+    --size-field: 0.3125rem;
+    --border: 2px;
+    --depth: 1;
+    --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+    name: "dracula";
+    default: false;
+    prefersdark: true;
+    color-scheme: dark;
+    --color-primary: "#7e22ce";
+    --color-primary-light: "#9333ea";
+    --color-primary-medium: "#7e22ce";
+    --color-primary-dark: "#6b21a8";
+    --radius-selector: 2rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.3125rem;
+    --size-field: 0.3125rem;
+    --border: 2px;
+    --depth: 1;
+    --noise: 0;
+}

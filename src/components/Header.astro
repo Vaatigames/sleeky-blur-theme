@@ -17,7 +17,7 @@ import { Image } from "astro:assets";
       <Image
         class="h-9 hover:h-10 w-auto transition-all duration-300"
         src="/img/vaati1.png"
-        alt="Vaatigame's Logo"
+        alt="Vaatigames"
         width="144"
         height="36"
       />
@@ -33,7 +33,7 @@ import { Image } from "astro:assets";
       </div>
       <ul
         tabindex="0"
-        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-36 p-2 mt-6">
+        class="dropdown-content menu bg-base-100 rounded-box z-1 w-36 p-2 mt-6">
         <li>
           <a href="/projet/ticket">
             <Image
@@ -45,7 +45,6 @@ import { Image } from "astro:assets";
             Vaaticket
           </a>
         </li>
-        {/* 
         <li>
           <a href="/projet/links">
             <Image
@@ -57,7 +56,6 @@ import { Image } from "astro:assets";
             DCLinks
           </a>
         </li>
-        */}
       </ul>
     </div>
     <div class="dropdown">
@@ -69,18 +67,11 @@ import { Image } from "astro:assets";
       </div>
       <ul
         tabindex="0"
-        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 mt-6">
+        class="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 mt-6">
         <li>
           <a href="/conditions">
             <Icon name="tabler:news" />
             Conditions
-          </a>
-        </li>
-        <li>
-          <a href="/form">
-            <Icon name="tabler:input-spark" />
-            Formulaire
-            <Icon name="tabler:arrow-big-up-lines" />
           </a>
         </li>
       </ul>
@@ -113,7 +104,7 @@ import { Image } from "astro:assets";
         >
       </button>
     </div>
-    <a href="https://panel.vaatigames.ovh" class="flex items-center btn bg-gradient-to-r from-primary-light via-primary-medium to-primary-dark">
+    <a href="https://panel.vaatigames.ovh" class="flex items-center btn bg-linear-to-r from-primary-light via-primary-medium to-primary-dark">
       <Icon name="tabler:app-window" class="text-2xl"/>
       <span class="ml-2">Panel</span>
     </a>

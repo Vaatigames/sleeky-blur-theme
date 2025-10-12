@@ -1,11 +1,22 @@
 ---
 layout: "../layouts/Markdown.astro"
 ---
+
 # ⚖️ Conditions d'Inscription
 
 ## ✨ Avant Propos
 Nous sommes ravis de vous voir intéressé par notre projet !
 Pour éviter les surcharges de demandes, nous avons mis en place des conditions d'inscriptions pour les serveurs.
+
+<div role="alert" class="alert alert-error py-4">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <div>
+    <strong>Vaatigames est fermé !</strong>
+    <p class="mt-0 mb-0">Nous n'acceptons donc plus de demande de serveurs, désolé...</p>
+  </div>
+</div>
 
 ## 💾 Disponibilité
 Pour que votre serveur soit accepté, il faut tout d'abord que nos machines puissent l'accueillir !
@@ -13,17 +24,17 @@ Voici l'occupation actuelle de nos nodes :
 
 <div class="flex flex-col gap-8 py-8 justify-center items-center w-full">
     <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-        <div class="radial-progress" style="--value:20;" role="progressbar">2/5</div>
+        <div class="radial-progress text-error" style="--value:100;" role="progressbar">0/0</div>
         <p>Disponibilité de la node Matrix</p>
     </div>
 
     <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-        <div class="radial-progress" style="--value:88;" role="progressbar">14/16</div>
+        <div class="radial-progress text-error" style="--value:100;" role="progressbar">0/0</div>
         <p>Disponibilité de la node Gattaca</p>
     </div>
 
     <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-        <div class="radial-progress" style="--value:66;" role="progressbar">64/96</div>
+        <div class="radial-progress text-error" style="--value:100;" role="progressbar">0/0</div>
         <p>Disponibilité de la node Vendetta</p>
     </div>
 </div>

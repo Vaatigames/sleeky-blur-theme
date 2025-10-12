@@ -6,6 +6,7 @@ import Nav from "../components/DrawerNav.astro";
 import Footer from "../components/Footer.astro";
 import Alert from "../components/Alert.astro";
 
+import "../assets/app.css";
 ---
 
 <html lang="fr">
@@ -28,7 +29,7 @@ import Alert from "../components/Alert.astro";
       themeChange();
     </script>
     <script defer src="https://umami.vaatigames.ovh/script.js" data-website-id="c046b5e1-47ce-46db-86a2-ebb92f003c66"></script>
-    <title>{title}</title>
+    <title>Vaatigames - {title}</title>
   </head>
 
   <body class="bg-base-200 transition-all duration-300">
@@ -36,12 +37,12 @@ import Alert from "../components/Alert.astro";
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
         <Header />
-        {/* <Alert
-          title="Vaatigames n'est pas encore prêt !"
-          body="Si ça t'interesse déjà, rend toi sur notre discord pour en parler avec nous :)"
+        <Alert
+          title="Vaatigames n'est plus ouvert !"
+          body="Nous avons arreté temporairement les activitées de Vaatigames."
           href="https://discord.gg/uawBFkmYq5"
           button="Discord"
-        /> */}
+        /> 
         <slot />
         <Footer />
       </div>
